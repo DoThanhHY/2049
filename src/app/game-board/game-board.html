@@ -1,0 +1,33 @@
+
+<div class="game-header">
+  <h1>2048</h1>
+  <div class="score-box">
+    <div class="score-label">Score</div>
+    <div class="score-value">{{ score() }}</div>
+  </div>
+  <div class="score-box best-box">
+    <div class="score-label">Best</div>
+    <div class="score-value">{{ bestScore() }}</div>
+  </div>
+</div>
+
+<div class="board">
+  @for (row of board(); track $index) {
+    <div class="row">
+      @for (cell of row; track cell + '-' + $index) {
+        <div [class]="'cell value-' + cell">
+          @if (cell !== 0) {
+            {{ cell }}
+          }
+        </div>
+      }
+    </div>
+  }
+</div>
+
+@if (isGameOver()) {
+  <div class="game-over-overlay">
+    <div class="game-over-text">Game Over!</div>
+    <button (click)="resetGame()">Chơi lại</button>
+  </div>
+}

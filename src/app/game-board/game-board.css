@@ -1,0 +1,122 @@
+.board {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: #bbada0;
+  border-radius: 8px;
+  padding: 12px;
+  width: fit-content;
+  margin: 40px auto;
+}
+
+.row {
+  display: flex;
+  gap: 12px;
+}
+
+.cell {
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  font-size: 2rem;
+  font-weight: bold;
+  background: #cdc1b4; /* màu ô rỗng */
+  color: #776e65;
+  transition: all 0.15s ease;
+}
+
+/* Màu cho từng giá trị số, giống bản gốc 2048 */
+.value-2    { background: #eee4da; color: #776e65; }
+.value-4    { background: #ede0c8; color: #776e65; }
+.value-8    { background: #f2b179; color: #f9f6f2; }
+.value-16   { background: #f59563; color: #f9f6f2; }
+.value-32   { background: #f67c5f; color: #f9f6f2; }
+.value-64   { background: #f65e3b; color: #f9f6f2; }
+.value-128  { background: #edcf72; color: #f9f6f2; font-size: 1.7rem; }
+.value-256  { background: #edcc61; color: #f9f6f2; font-size: 1.7rem; }
+.value-512  { background: #edc850; color: #f9f6f2; font-size: 1.7rem; }
+.value-1024 { background: #edc53f; color: #f9f6f2; font-size: 1.4rem; }
+.value-2048 { background: #edc22e; color: #f9f6f2; font-size: 1.4rem; }
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: fit-content;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.game-header h1 {
+  font-size: 3rem;
+  color: #776e65;
+  margin-right: 40px;
+}
+
+.score-box {
+  background: #bbada0;
+  border-radius: 6px;
+  padding: 10px 20px;
+  text-align: center;
+  color: white;
+}
+
+.score-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+.score-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.game-over-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(238, 228, 218, 0.73);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.game-over-text {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #776e65;
+}
+
+.game-over-overlay button {
+  padding: 12px 24px;
+  font-size: 1.2rem;
+  background: #8f7a66;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.score-box {
+  background: #bbada0;
+  border-radius: 6px;
+  padding: 10px 20px;
+  text-align: center;
+  color: white;
+  margin-left: 10px;
+}
+
+@keyframes pop {
+  0%   { transform: scale(0.8); }
+  50%  { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.cell.value-2, .cell.value-4, .cell.value-8, .cell.value-16,
+.cell.value-32, .cell.value-64, .cell.value-128, .cell.value-256,
+.cell.value-512, .cell.value-1024, .cell.value-2048 {
+  animation: pop 0.15s ease;
+}
